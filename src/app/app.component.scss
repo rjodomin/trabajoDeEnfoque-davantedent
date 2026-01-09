@@ -1,0 +1,15 @@
+
+
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+app-appointment-form,
+app-lista-citas {
+  margin-bottom: 30px;  
+}
+

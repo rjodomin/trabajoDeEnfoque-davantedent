@@ -1,0 +1,141 @@
+<div class="form-container">
+  <h2>🦷 Nueva Cita Dental</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="cita-form" novalidate>
+    <!-- DATOS PERSONALES -->
+    <div class="form-section">
+      <h3>👤 Datos Personales*</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre *</label>
+          <input formControlName="nombre" type="text" placeholder="Juan" />
+          <div *ngIf="getError('nombre')" class="error">
+            {{ getError("nombre") }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Apellidos *</label>
+          <input
+            formControlName="apellidos"
+            type="text"
+            placeholder="Pérez García"
+          />
+          <div *ngIf="getError('apellidos')" class="error">
+            {{ getError("apellidos") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>DNI *</label>
+          <input
+            formControlName="dni"
+            type="text"
+            maxlength="9"
+            placeholder="12345678Z"
+          />
+          <div *ngIf="getError('dni')" class="error">{{ getError("dni") }}</div>
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input
+            formControlName="telefono"
+            type="tel"
+            maxlength="9"
+            placeholder="612345678"
+          />
+          <div *ngIf="getError('telefono')" class="error">
+            {{ getError("telefono") }}
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha Nacimiento *</label>
+          <input formControlName="nacimiento" type="date" />
+          <div *ngIf="getError('nacimiento')" class="error">
+            {{ getError("nacimiento") }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FECHA Y HORA -->
+    <div class="form-section">
+      <h3>📅 Fecha y Hora *</h3>
+
+      <div class="form-group full-width datetime-group">
+        <div class="datetime-input-wrapper">
+          <input
+            type="datetime-local"
+            formControlName="fechaHora"
+            [min]="minFechaHora"
+            class="datetime-input"
+            placeholder="Selecciona fecha y hora"
+          />
+          <div class="datetime-hint">
+            📅 Calendario + ⏰ Hora (mínimo: ahora)
+          </div>
+        </div>
+        <div *ngIf="getError('fechaHora')" class="error full-width">
+          {{ getError("fechaHora") }}
+        </div>
+      </div>
+    </div>
+
+    <!-- TRATAMIENTO -->
+    <div class="form-section">
+      <h3>Tratamiento*</h3>
+
+      <div class="form-group">
+        <div class="form-row">
+          <select formControlName="tratamiento" class="select-tratamiento">
+            <option value="">Seleccionar...</option>
+            <option value="revision">🔍 Revisión general</option>
+            <option value="limpieza">🪥 Limpieza dental</option>
+            <option value="empaste">🦷 Empaste</option>
+            <option value="extraccion">✂️ Extracción</option>
+            <option value="ortodoncia">🦴 Ortodoncia</option>
+          </select>
+        </div>
+        <div *ngIf="getError('tratamiento')" class="error">
+          {{ getError("tratamiento") }}
+        </div>
+      </div>
+    </div>
+
+    <!-- OBSERVACIONES -->
+    <div class="form-section">
+      <div class="form-group full-width">
+        <label>Observaciones</label>
+        <textarea
+          formControlName="observaciones"
+          rows="3"
+          placeholder="Notas adicionales, alergias, preferencias..."
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- ACCIONES -->
+    <div class="form-actions">
+      <button type="submit" class="btn-primary btn-lg">✅ Reservar Cita</button>
+      <button type="button" (click)="form.reset()" class="btn-secondary btn-lg">
+        🔄 Limpiar Formulario
+      </button>
+    </div>
+
+    <!-- ESTADO -->
+    <div class="form-status" *ngIf="erroresCount > 0">
+      <span class="status-error">
+        ⚠️ {{ erroresCount }} error{{
+          erroresCount !== 1 ? "es" : ""
+        }}
+        encontrado{{ erroresCount !== 1 ? "s" : "" }}
+      </span>
+    </div>
+  </form>
+</div>

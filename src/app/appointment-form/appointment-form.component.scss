@@ -1,0 +1,200 @@
+/* 
+  Hoja de estilos para el formulario de citas.
+  Define la apariencia del contenedor principal así como de las diferentes secciones, filas, 
+  inputs, botones y mensajes de error. 
+  Así mismo cuenta con diferentes ajustes para hacer todos nuestros componentes responsive.
+*/
+.form-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.form-subtitle {
+  text-align: center;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cita-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #333;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-section {
+  margin-bottom: 2.5rem;
+  
+  h3 {
+    color: #2c5aa0;
+    margin: 0 0 1.25rem 0;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.4rem;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem 2.25rem;  
+  margin-bottom: 2.5rem;
+}
+
+.form-group {
+  position: relative;
+  min-height: 100px;  
+  
+  label {
+    display: block;
+    margin-bottom: 0.75rem; 
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;  
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    display: block;
+    box-sizing: border-box; 
+    margin-bottom: 0; 
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 85px;
+  }
+  
+  .error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: block;
+  }
+}
+
+.full-width {
+  grid-column: 1 / -1;
+  margin-bottom: 2.5rem;
+}
+
+.datetime-group {
+  .datetime-input-wrapper {
+    position: relative;
+  }
+  
+  .datetime-input {
+    font-size: 1rem;
+    padding-right: 2.5rem;
+  }
+  
+  .datetime-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+}
+
+.select-tratamiento {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 2.5rem 0 1.5rem 0;
+  
+  .btn-lg {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    flex: 1;
+    max-width: 200px;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+    }
+  }
+  
+  .btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
+    }
+  }
+}
+
+.form-status {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  margin: 1.5rem 0;
+  
+  .status-error {
+    color: #856404;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    margin: 0.5rem;
+    padding: 1.25rem;
+  }
+  
+  .cita-form {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .form-group {
+    min-height: 105px;
+    
+    label {
+      margin-bottom: 0.85rem;
+    }
+    
+    input, select, textarea {
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .form-group {
+    min-height: 110px;
+  }
+}
