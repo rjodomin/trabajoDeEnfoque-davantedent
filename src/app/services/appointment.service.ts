@@ -1,5 +1,5 @@
 /**
- * Servicio Angular para gestionar citas (AppointmentService). 
+ * Servicio para gestionar citas (AppointmentService). 
  * Permite añadir, eliminar y obtener la lista de citas usando.
  * También persiste los datos en el localStorage para mantener las citas entre sesiones.
  * 
